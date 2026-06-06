@@ -145,4 +145,83 @@
 
   window.addEventListener('scroll', updateActiveLink, { passive: true });
   updateActiveLink();
+
+  /* ==========================================================================
+     Skill Clips — Video Modal
+     ========================================================================== */
+  var clipCards       = document.querySelectorAll('.clip-card');
+  var videoModal      = document.getElementById('video-modal');
+  var videoPlayer     = document.getElementById('video-modal-player');
+  var videoClose      = document.getElementById('video-modal-close');
+  var videoPrev       = document.getElementById('video-modal-prev');
+  var videoNext       = document.getElementById('video-modal-next');
+  var videoLabel      = document.getElementById('video-modal-label');
+  var videoCounter    = document.getElementById('video-modal-counter');
+
+  // Build ordered list of clips from the DOM cards
+  var clips = Array.from(clipCards).map(function (card) {
+    return { src: card.dataset.src, label: card.dataset.label };
+  });
+
+  var currentClip = 0;
+
+  function openVideoModal(index) {
+    currentClip = index;
+    renderVideo();
+    videoModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    videoClose.focus();
+  }
+
+  function closeVideoModal() {
+    videoPlayer.pause();
+    videoPlayer.removeAttribute('src');
+    videoPlayer.load();
+    videoModal.classList.remove('active');
+    document.body.style.overflow = '';
+    var trigger = clipCards[currentClip];
+    if (trigger) trigger.focus();
+  }
+
+  function renderVideo() {
+    var clip = clips[currentClip];
+    videoPlayer.src = clip.src;
+    videoLabel.textContent = clip.label;
+    videoCounter.textContent = (currentClip + 1) + ' / ' + clips.length;
+    videoPlayer.load();
+    videoPlayer.play().catch(function () {
+      // Autoplay may be blocked — user can press play manually
+    });
+  }
+
+  function showPrevClip() {
+    currentClip = (currentClip - 1 + clips.length) % clips.length;
+    renderVideo();
+  }
+
+  function showNextClip() {
+    currentClip = (currentClip + 1) % clips.length;
+    renderVideo();
+  }
+
+  clipCards.forEach(function (card, index) {
+    card.addEventListener('click', function () { openVideoModal(index); });
+  });
+
+  videoClose.addEventListener('click', closeVideoModal);
+  videoPrev.addEventListener('click', showPrevClip);
+  videoNext.addEventListener('click', showNextClip);
+
+  // Close on backdrop click
+  videoModal.addEventListener('click', function (e) {
+    if (e.target === videoModal) closeVideoModal();
+  });
+
+  // Keyboard: Escape closes, arrows navigate (only when video modal is open)
+  document.addEventListener('keydown', function (e) {
+    if (!videoModal.classList.contains('active')) return;
+    if (e.key === 'Escape')     closeVideoModal();
+    if (e.key === 'ArrowLeft')  showPrevClip();
+    if (e.key === 'ArrowRight') showNextClip();
+  });
 }());

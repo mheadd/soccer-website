@@ -195,25 +195,52 @@
         <div class="section-line"></div>
       </div>
 
-      <div class="highlights-featured">
-        <a href="https://taka.io/soccer/athlete/6717ccf7fbbf67ba51ec1f90?tabName=by_games&fixtureId=418350&clip=127984_22_1"
-           target="_blank" rel="noopener noreferrer"
-           class="highlight-card">
-          <div class="highlight-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </div>
-          <div class="highlight-card__body">
-            <span class="highlight-card__badge">Game Clips</span>
-            <h3 class="highlight-card__title">Game Highlights</h3>
-            <p class="highlight-card__sub">via Taka.io &middot; Account may be required</p>
-          </div>
-          <svg class="highlight-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-          </svg>
-        </a>
+      <h3 class="matches-heading">Skill Clips</h3>
+      <div class="clips-grid">
+
+        <button class="clip-card" data-src="videos/Challenge_Short_Pass.mp4" data-label="Challenge / Short Pass" aria-label="Play: Challenge / Short Pass">
+          <span class="clip-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+          <span class="clip-card__label">Challenge / Short Pass</span>
+        </button>
+
+        <button class="clip-card" data-src="videos/Defense_1v1.mp4" data-label="1v1 Defense" aria-label="Play: 1v1 Defense">
+          <span class="clip-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+          <span class="clip-card__label">1v1 Defense</span>
+        </button>
+
+        <button class="clip-card" data-src="videos/Link_Up.mp4" data-label="Link Up" aria-label="Play: Link Up">
+          <span class="clip-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+          <span class="clip-card__label">Link Up</span>
+        </button>
+
+        <button class="clip-card" data-src="videos/Off_Ball_Intelligence_Shot_Finish.mp4" data-label="Off Ball Intelligence + Shot Finish" aria-label="Play: Off Ball Intelligence + Shot Finish">
+          <span class="clip-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+          <span class="clip-card__label">Off Ball Intelligence + Shot Finish</span>
+        </button>
+
+        <button class="clip-card" data-src="videos/Off_Ball_Intelligence_Shot_Finish2.mp4" data-label="Off Ball Intelligence + Shot Finish 2" aria-label="Play: Off Ball Intelligence + Shot Finish 2">
+          <span class="clip-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+          <span class="clip-card__label">Off Ball Intelligence + Shot Finish 2</span>
+        </button>
+
+        <button class="clip-card" data-src="videos/Pressure.mp4" data-label="Pressure" aria-label="Play: Pressure">
+          <span class="clip-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+          <span class="clip-card__label">Pressure</span>
+        </button>
+
+        <button class="clip-card" data-src="videos/Shot_Finish.mp4" data-label="Shot Finish" aria-label="Play: Shot Finish">
+          <span class="clip-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+          <span class="clip-card__label">Shot Finish</span>
+        </button>
+
+        <button class="clip-card" data-src="videos/Shot_Finish2.mp4" data-label="Shot Finish 2" aria-label="Play: Shot Finish 2">
+          <span class="clip-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+          <span class="clip-card__label">Shot Finish 2</span>
+        </button>
+
       </div>
 
-      <h3 class="matches-heading">Full Match Video</h3>
+      <h3 class="matches-heading" style="margin-top: 44px;">Full Match Video</h3>
       <div class="matches-grid">
 
         <a href="https://app.veo.co/matches/20260526-sda-2010-boys-mls-next-vs-utah-celtic-fc-v5037a9a/"
@@ -278,6 +305,18 @@
       </div>
     </div>
   </section>
+
+  <!-- Video Modal -->
+  <div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-label="Skill clip player">
+    <button class="video-modal__close" id="video-modal-close" aria-label="Close video">&times;</button>
+    <button class="video-modal__prev" id="video-modal-prev" aria-label="Previous clip">&#8249;</button>
+    <button class="video-modal__next" id="video-modal-next" aria-label="Next clip">&#8250;</button>
+    <div class="video-modal__wrap">
+      <p class="video-modal__label" id="video-modal-label"></p>
+      <video id="video-modal-player" controls playsinline preload="metadata"></video>
+    </div>
+    <p class="video-modal__counter" id="video-modal-counter" aria-live="polite"></p>
+  </div>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox">
