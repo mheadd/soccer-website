@@ -20,7 +20,7 @@ Replace every value in angle brackets with the real player's information.
 ```
 Name:              <First Last>
 Graduation Year:   <YYYY>
-Current Grade:     <Freshman / Sophomore / Junior / Senior>
+Current Grade:     < / Sophomore / Junior / Senior>
 Position(s):       <e.g. Midfielder / Winger>
 Dominant Foot:     <Right / Left / Both>
 Location:          <City, State>
