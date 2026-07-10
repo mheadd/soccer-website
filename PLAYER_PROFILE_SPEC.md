@@ -1,6 +1,6 @@
 # Soccer Player Recruiting Profile — Build Specification
 
-A generic specification for building a college recruiting website and printable one-page profile for a high school soccer player. Hand this document to an AI coding agent (e.g. GitHub Copilot) along with the player's photos and it will produce a complete, ready-to-host site.
+A generic specification for building a college recruiting website and printable one-page profile for a high school soccer player. Hand this document to an AI coding agent (e.g. Claude, ChatGPT, GitHub Copilot, etc.) along with the player's photos and it will produce a complete, ready-to-host site.
 
 ---
 
